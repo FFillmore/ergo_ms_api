@@ -35,6 +35,7 @@ class ProjectSerializer(serializers.ModelSerializer):
             'updated_at',
         ]
         read_only_fields = ['owner', 'created_at', 'updated_at']
+        ref_name = 'ProjectEdProject'
 
     def validate_budget_total(self, value):
         try:
@@ -152,6 +153,7 @@ class CategorySerializer(serializers.ModelSerializer):
             'updated_at',
         ]
         read_only_fields = ['indicators_count', 'subcategories_count', 'created_at', 'updated_at']
+        ref_name = 'ProjectEdCategory'
 
 
 class CategoryCreateUpdateSerializer(serializers.ModelSerializer):

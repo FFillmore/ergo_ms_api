@@ -49,8 +49,10 @@ class VideoAnalysisViewSet(SwaggerSafeMixin, viewsets.ModelViewSet):
     def get_queryset(self):
         base_queryset = VideoAnalysis.objects.all()
         user = self.get_safe_user()
-        logger.debug(f"Получение queryset для пользователя {user.username} (ID: {user.id})")
-        return self.get_safe_queryset(base_queryset.filter(user=user))
+        if user:
+            logger.debug(f"Получение queryset для пользователя {user.username} (ID: {user.id})")
+            return self.get_safe_queryset(base_queryset.filter(user=user))
+        return self.get_safe_queryset(base_queryset.none())
     
     def list(self, request, *args, **kwargs):
         logger.info(f"Запрос списка анализов от пользователя {request.user.username} (ID: {request.user.id})")

@@ -104,12 +104,13 @@ class ProjectSerializer(serializers.ModelSerializer):
     class Meta:
         model = Project
         fields = [
-            'id', 'name', 'description', 'planned_results', 'owner', 'manager', 'manager_id',
+            'id', 'name', 'description', 'owner', 'manager', 'manager_id',
             'memberships', 'status', 'priority', 'start_date', 'end_date',
             'created_at', 'updated_at', 'color', 'task_count', 'completed_task_count',
             'progress', 'status_ref', 'priority_ref', 'status_ref_id', 'priority_ref_id',
             'current_status', 'current_priority', 'status_display', 'priority_display'
         ]
+        ref_name = 'CRMProject'
     
     def get_task_count(self, obj):
         return obj.tasks.count()
@@ -160,7 +161,7 @@ class ProjectListSerializer(serializers.ModelSerializer):
     class Meta:
         model = Project
         fields = [
-            'id', 'name', 'description', 'planned_results', 'owner', 'manager', 'status', 'priority',
+            'id', 'name', 'description', 'owner', 'manager', 'status', 'priority',
             'start_date', 'end_date', 'created_at', 'color', 'task_count',
             'completed_task_count', 'progress', 'status_ref', 'priority_ref',
             'current_status', 'current_priority', 'status_display', 'priority_display'

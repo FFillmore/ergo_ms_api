@@ -74,6 +74,7 @@ class CategorySerializer(serializers.ModelSerializer):
         model = Category
         fields = ['id', 'name', 'parent', 'slug']
         read_only_fields = ['slug']
+        ref_name = 'SettingsCategory'
     def to_representation(self, instance):
         ret = super().to_representation(instance)
         ret['slug'] = instance.slug

@@ -177,7 +177,14 @@ class UserProfileSettingsViewSet(SwaggerSafeMixin, viewsets.ModelViewSet):
     
     def get_queryset(self):
         """ProjectEd-админы видят все профили, остальные — только свой."""
+        # Для генерации Swagger схемы
+        if getattr(self, 'swagger_fake_view', False):
+            return self.queryset.none()
+        
         user = self.request.user
+        if not user or not user.is_authenticated:
+            return self.queryset.none()
+        
         if self._is_project_ed_admin(user):
             return self.queryset
         return self.queryset.filter(user=user)

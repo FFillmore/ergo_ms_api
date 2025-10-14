@@ -1,0 +1,9 @@
+from src.modules.bio.geobotany.serializers import *  # noqa: F401,F403
+from src.modules.bio.zoology.serializers import *  # noqa: F401,F403
+from src.modules.bio.ecoprofiles.serializers import *  # noqa: F401,F403
+from src.modules.bio.interactions.serializers import *  # noqa: F401,F403
+from src.modules.bio.successions.serializers import *  # noqa: F401,F403
+from src.modules.bio.paleobotany.serializers import *  # noqa: F401,F403
+from src.modules.bio.geomorphology.serializers import *  # noqa: F401,F403
+from src.modules.bio.floristics.serializers import *  # noqa: F401,F403
+from src.modules.bio.ecoprofiles.serializers import *  # noqa: F401,F403
